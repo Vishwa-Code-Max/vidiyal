@@ -15,12 +15,11 @@ export const deleteFile = (filePath) => {
 };
 
 export const convertToUrl = (filePath, req) => {
-  if (!filePath) return '';
-  if (filePath.startsWith('http')) return filePath;
-  if (filePath.startsWith('uploads/')) {
-    return `${req.protocol}://${req.get('host')}/${filePath}`;
-  }
-  return filePath;
+  if (!filePath) return "";
+
+  if (filePath.startsWith("http")) return filePath;
+
+  return `${req.protocol}://${req.get("host")}/${filePath}`;
 };
 
 export const generateProjectId = () => {
